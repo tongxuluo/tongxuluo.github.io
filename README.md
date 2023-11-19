@@ -1,1 +1,1 @@
-# tongxuluo.github.io
+# View the page at https://Kuroxiro.github.io
