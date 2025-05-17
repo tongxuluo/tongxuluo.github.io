@@ -1,209 +1,455 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Tongxu Luo | Homepage</title>
-  <meta name="author" content="Tongxu Luo">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😆</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tongxu Zeno Luo | Homepage</title>
+    <meta name="author" content="Tongxu Zeno Luo">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😆</text></svg>">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            display: flex;
+            background-color: #f4f4f4; /* 整体背景色，可根据图片调整 */
+        }
+        p {
+            font-size: 20px; /* 或者 18px, 110%, etc. */
+        }
+
+        /* 左侧固定栏 */
+        .sidebar {
+            width: 600px; /* 左侧栏宽度 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh; /* 占满整个视窗高度 */
+            background-color: #6298c7; /* 左侧栏背景色，参考图片调整 */
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box; /* padding 不会撑开宽度 */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 居中对齐内容 */
+        }
+
+        .sidebar img.profile-pic {
+            width: 250px; /* 根据你的图片调整 */
+            height: 250px; /* 根据你的图片调整 */
+            border-radius: 50%; /* 圆形图片 */
+            margin-bottom: 20px;
+            border: 3px solid #fff; /* 图片边框 */
+        }
+
+        .sidebar h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .sidebar p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sidebar .contact-info a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 1.2em; /* 图标大小 */
+        }
+        .sidebar .contact-info a:hover {
+            color: #fff;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar nav ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: block; /* 让整个区域可点击 */
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar nav ul li a:hover,
+        .sidebar nav ul li a.active { /* 当前激活的导航链接 */
+            background-color: #555;
+            color: #fff;
+        }
+
+        /* 右侧内容区 */
+        .main-content {
+            margin-left: 600px; /* 等于左侧栏宽度 */
+            padding: 40px;
+            width: calc(100% - 300px); /* 填充剩余宽度 */
+            box-sizing: border-box;
+        }
+
+        .main-content section {
+            margin-bottom: 60px; /* 区域间距 */
+            padding-top: 20px; /* 用于锚点定位的偏移 */
+            min-height: 300px; /* 保证每个区域有一定高度，方便滚动切换 */
+        }
+
+        .main-content h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        /* News 列表 */
+        .news-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .news-list li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .news-list li .date {
+            font-weight: bold;
+            color: #555;
+            margin-right: 10px;
+        }
+
+        /* 论文列表 */
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 每行2篇 */
+            gap: 30px; /* 论文之间的间距 */
+        }
+
+        .paper-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .paper-item img.paper-image {
+            width: 100%; /* 图片宽度自适应 */
+            max-height: 200px; /* 图片最大高度 */
+            object-fit: cover; /* 图片裁剪方式 */
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .paper-item h3 {
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .paper-item .authors {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .paper-item .description {
+            font-size: 1em;
+            color: #444;
+            margin-bottom: 15px;
+            flex-grow: 1; /* 让描述占据剩余空间 */
+        }
+
+        .paper-item .links a {
+            margin-right: 10px;
+            text-decoration: none;
+            /* 为了简单起见，这里用文字代替图标，您可以替换为 <img> 或 FontAwesome 等图标 */
+        }
+        .paper-item .links a img { /* 如果你用图片做图标 */
+            width: 24px; /* 图标大小 */
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        /* 联系表单 */
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .contact-form button {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        /* MapMyVisitor 容器 */
+        #visitor-map-container {
+            margin-top: 30px;
+            text-align: center; /* 居中地图 */
+        }
+
+        /* 响应式设计：小屏幕下左侧栏变为顶部栏，内容区占满 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static; /* 取消固定定位 */
+                flex-direction: column; /* 保持列布局 */
+                align-items: center;
+            }
+            .sidebar nav ul {
+                display: flex; /* 横向排列导航 */
+                flex-wrap: wrap; /* 换行 */
+                justify-content: center;
+                margin-top: 10px;
+            }
+            .sidebar nav ul li {
+                margin: 5px;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            .papers-grid {
+                grid-template-columns: 1fr; /* 小屏幕每行一篇 */
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <table style="width:100%; max-width:800px; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%; width:63%; vertical-align:middle">
-                  <p style="text-align:center">
-                    <name>Tongxu Luo</name>
-                  </p>
-                  <p>
-                    I am Tongxu Luo, a senior undergraduate student at USTB. B.S. Candidate in Computer Science and Technology.
-                    I will join Professor Benyou Wang's team at CUHKSZ in 25Fall.
-                    <!-- <a href="[Advisor's Website URL]">Advisor's Name</a>. -->
-                  </p>
-                  <p>
-                    My current research interests include Efficiency of Large Language Models and AI4Math.
-                  </p>
-                  <p>
-                    Research Intern at HKUST, under the guidance of Dr. Jie Fu (Nov 2023 - May 2024).
-                  </p>
-                  <p>
-                    Research Intern at CASIA, mentored by Dr. Shizhu He during my sophomore year (Mar 2023 - Nov 2023).
-                  </p>
 
-                  <p style="text-align:left">
-                    <a href="mailto:u202142005@xs.ustb.edu.cn"><img src="imgs/mail.svg" alt="Email" style="vertical-align:middle;" width="24" height="24"></a> &nbsp;/&nbsp;
-                    <a href="https://scholar.google.com/citations?user=aJEGhzkAAAAJ"><img src="imgs/google-scholar.svg" alt="Google Scholar" style="vertical-align:middle;" width="24" height="24"></a> &nbsp;/&nbsp;
-                    <a href="https://twitter.com/kuro_xiro"><img src="imgs/twitter.svg" alt="Twitter" style="vertical-align:middle;" width="30" height="30"></a> &nbsp;/&nbsp;
-                    <a href="https://github.com/tongxuluo"><img src="imgs/github-alt.svg" alt="GitHub" style="vertical-align:middle;" width="24" height="24"></a>
-                  </p>
-                </td>
-                <td style="padding:2.5%; width:25%; max-width:25%">
-                  <a href="imgs/ltx.jpg"><img style="width:125%; max-width:125%" alt="profile photo" src="imgs/ltx.jpg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <aside class="sidebar">
+        <img src="./imgs/ltx.jpg" alt="Tongxu Zeno Luo" class="profile-pic">
+        <h1>Tongxu Zeno Luo</h1>
+        <h3>25 Fall PhD Student</h3>
+        <p>"Be patient, then Doctor."</p>
+        <div class="contact-info">
+            <a href="mailto:tongxuluo@gmail.com" title="Email"><img src="imgs/mail.svg" alt="Email" style="vertical-align:middle;" width="24" height="24"></a>
+            <a href="https://scholar.google.com/citations?user=aJEGhzkAAAAJ" target="_blank" title="Google Scholar"><img src="imgs/google-scholar.svg" alt="Google Scholar" style="vertical-align:middle;" width="24" height="24"></a>
+            <a href="https://twitter.com/kuro_xiro" target="_blank" title="Twitter"><img src="imgs/twitter.svg" alt="Twitter" style="vertical-align:middle;" width="30" height="30"></a>
+            <a href="https://github.com/tongxuluo"><img src="imgs/github-alt.svg" alt="GitHub" style="vertical-align:middle;" width="24" height="24"></a>
+        </div>
 
-          <table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px; width:100%; vertical-align:middle">
-                  <heading>Publications</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <nav>
+            <ul>
+                <li><a href="#about" class="nav-link active">About Me</a></li>
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#visitor-stats" class="nav-link">Visitor Stats</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-          <table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;">
-            <tbody>
+    <main class="main-content">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my personal homepage!</p>
+            <p>My name is Tongxu Luo, a senior undergraduate student at USTB. B.S. Candidate in Computer Science and Technology. I will join Professor Benyou Wang's team at CUHKSZ in 25Fall.</p>
+            <p>I have a strong interest in all topics about LLMs and am actively exploring and expanding the boundaries of current LLM technology. My recent research mainly focuses on Efficient Large Language Models and Large Reasoning Models. So far, I have published papers in conferences such as NeurIPS and EMNLP, with a total of Google Scholar citations (<a href="https://scholar.google.com/citations?user=aJEGhzkAAAAJ" target="_blank" style="text-decoration: none;"><img src="https://img.shields.io/badge/Google%20Scholar-144-blue?logo=googlescholar&logoColor=white&style=flat" alt="Google Scholar Citations" style="position: relative; top: 5px;"></a>).</p>
+        </section>
 
-              <tr>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2406.17245">
-                    <papertitle>Unlocking Continual Learning Abilities in Language Models</papertitle>
+        <section id="news">
+            <h2>News</h2>
+            <div class="news-list">
+                <ul>
+                    <li><span class="date">2025.5</span> 📢 Our new paper “Learning from Peers in Reasoning Models” is now available on arXiv!</li>
+                    <li><span class="date">2024.9</span> 🎉 Our paper “Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training” has been accepted to NeurIPS 2024 Spotlight!</li>
+                    <li><span class="date">2024.9</span> 🎉 Our paper “Unlocking Continual Learning Abilities in Language Models” has been accepted to EMNLP 2024 Findings!</li>
+                    <li><span class="date">2024.9</span> 🎉 Our paper “Neeko: Leveraging Dynamic LoRA for Efficient Multi-Character Role-Playing Agent” has been accepted to EMNLP 2024 Main!</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <div class="papers-grid">
+                <div class="paper-item">
+                    <img src="./imgs/leap.png" alt="Learning from Peers in Reasoning Models" class="paper-image">
+                    <h3>[Arxiv Preprint] Learning from Peers in Reasoning Models</h3>
+                    <p class="authors"><strong>Tongxu Luo*</strong>, Wenyu Du*, Jiaxi Bi, Stephen Chung, Zhengyang Tang, Hao Yang, Min Zhang, Benyou Wang</p>
+                    <p class="description">We find Large Reasoning Models often get stuck when they start reasoning incorrectly (the "Prefix Dominance Trap"). To address this, we propose LeaP (Learning from Peers), a method where parallel reasoning paths share intermediate summaries to learn from each other and self-correct during inference.</p>
+                    <div class="links">
+                        <a href="https://arxiv.org/abs/2505.07787" target="_blank" title="ArXiv">
+                            <img src="./imgs/arxiv-logo.svg" alt="ArXiv">
+                        </a>
+                        <a href="https://github.com/tongxuluo/LeaP" target="_blank" title="GitHub">
+                            <img src="./imgs/github-alt.svg" alt="GitHub">
+                        </a>
+                        <a href="https://x.com/_akhaliq/status/1922322266181771722" target="_blank" title="Twitter">
+                            <img src="./imgs/twitter.svg" alt="Twitter">
+                        </a>
+                        </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="./imgs/stacking.png" alt="Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training" class="paper-image">
+                    <h3>[NeruIPS 2024 Spotlight] Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training</h3>
+                    <p class="authors">Wenyu Du*, <strong>Tongxu Luo*</strong>, Zihan Qiu, Zeyu Huang, Yikang Shen, Reynold Cheng, Yike Guo, Jie Fu</p>
+                    <p class="description"> We investigate model growth techniques for efficient LLM pre-training, identifying a depthwise stacking operator that significantly accelerates training and improves performance by leveraging smaller models to build larger ones, while also providing systematic evaluation and guidelines for its application.</p>
+                    <div class="links">
+                        <a href="https://arxiv.org/abs/2405.15319" target="_blank" title="ArXiv">
+                            <img src="./imgs/arxiv-logo.svg" alt="ArXiv">
+                        </a>
+                        <a href="https://github.com/tongxuluo/prts" target="_blank" title="GitHub">
+                            <img src="./imgs/github-alt.svg" alt="GitHub">
+                        </a>
+                        <a href="https://x.com/_akhaliq/status/1794938544336568380" target="_blank" title="Twitter">
+                            <img src="./imgs/twitter.svg" alt="Twitter">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="./imgs/neeko.jpg" alt="Neeko: Leveraging Dynamic LoRA for Efficient Multi-Character Role-Playing Agent" class="paper-image">
+                    <h3>[EMNLP 2024 Main] Neeko: Leveraging Dynamic LoRA for Efficient Multi-Character Role-Playing Agent</h3>
+                    <p class="authors">Xiaoyan Yu*, <strong>Tongxu Luo*</strong>, Yifan Wei, Fangyu Lei, Yiming Huang, Hao Peng, Liehuang Zhu</p>
+                    <p class="description">We present Neeko, an innovative framework designed for efficient multiple characters imitation. Unlike existing methods, Neeko employs a dynamic low-rank adapter (LoRA) strategy, enabling it to adapt seamlessly to diverse characters.</p>
+                    <div class="links">
+                        <a href="https://arxiv.org/abs/2402.13717" target="_blank" title="ArXiv">
+                            <img src="./imgs/arxiv-logo.svg" alt="ArXiv">
+                        </a>
+                        <a href="https://github.com/weiyifan1023/Neeko" target="_blank" title="GitHub">
+                            <img src="./imgs/github-alt.svg" alt="GitHub">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="./imgs/migu.jpg" alt="Unlocking Continual Learning Abilities in Language Models" class="paper-image">
+                    <h3>[EMNLP 2024 Findings] Unlocking Continual Learning Abilities in Language Models</h3>
+                    <p class="authors">Wenyu Du*, Shuang Cheng*, <strong>Tongxu Luo</strong>, Zihan Qiu, Zeyu Huang, Ka Chun Cheung, Reynold Cheng, Jie Fu</p>
+                    <p class="description">We introduce MIGU, a novel rehearsal-free and task-label-free continual learning method for language models that combats catastrophic forgetting by only updating model parameters exhibiting large output magnitudes in their linear layers.</p>
+                    <div class="links">
+                        <a href="https://arxiv.org/abs/2406.17245" target="_blank" title="ArXiv">
+                            <img src="./imgs/arxiv-logo.svg" alt="ArXiv">
+                        </a>
+                        <a href="https://github.com/wenyudu/MIGU" target="_blank" title="GitHub">
+                            <img src="./imgs/github-alt.svg" alt="GitHub">
+                        </a>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>I am seeking collaborators, and I'm particularly looking for undergraduate students with strong coding abilities and (senior) PhD students who possess unique insights.</p>
+            <p>If you are interested in my work, please feel free to contact me! 🤗</p>
+            <form action="mailto:tongxuluo@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">Send Email</button>
+                </div>
+            </form>
+            
+        </section>
+
+        <section id="visitor-stats">
+            <h2>Visitor Statistics</h2>
+            <p>See where my visitors are coming from!</p>
+            <div id="visitor-map-container">
+                <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=FunMOwGHUe1ZM5KeP-MiqYqBgitK-20dunL0r-ZLXPY&cl=ffffff&w=a"></script>
+                <noscript>
+                    <p>Please enable JavaScript to see the visitor map.</p>
+                    <a href="https://mapmyvisitors.com/web/1by9x" title="Visit tracker">
+                        <img src="https://mapmyvisitors.com/map.png?d=FunMOwGHUe1ZM5KeP-MiqYqBgitK-20dunL0r-ZLXPY&cl=ffffff" alt="Visitor Map">
                     </a>
-                    <br>
-                    Wenyu Du, Shuang Cheng, <strong>Tongxu Luo</strong>, Zihan Qiu, Zeyu Huang, Ka Chun Cheung, Reynold Cheng, Jie Fu
-                    <br>
-                    <strong><em>EMNLP Findings</em></strong>, 2024 (<a href="https://huggingface.co/papers/2406.17245"><strong><em>Hugging Face Daily Paper</em></strong></a>)
-                    <br>
-                </td>
-                </tr>
+                </noscript>
+            </div>
+            <p style="text-align: center; margin-top: 10px;">
+                <a href="https://mapmyvisitors.com/web/1by9x" target="_blank">View Detailed Statistics</a>
+            </p>
+        </section>
+    </main>
 
-              <tr>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://arxiv.org/abs/2405.15319">
-                  <papertitle>Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training</papertitle>
-                  </a>
-                  <br>
-                  Wenyu Du*, <strong>Tongxu Luo*</strong>, Zihan Qiu, Zeyu Huang, Yikang Shen, Reynold Cheng, Yike Guo, Jie Fu
-                  <br>
-                  <strong><em>NeurIPS Spotlight</em></strong>, 2024 (<a href="https://twitter.com/_akhaliq/status/1794938544336568380"><strong><em>Posted by AK</em></strong></a>)
-                  <br>
-              </td>
-              </tr>
+    <script>
+        // 简单的滚动高亮导航功能
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.main-content section');
+            const navLinks = document.querySelectorAll('.sidebar nav ul li a.nav-link');
 
-                <tr>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2402.13717">
-                    <papertitle>Neeko: Leveraging Dynamic LoRA for Efficient Multi-Character Role-Playing Agent</papertitle>
-                    </a>
-                    <br>
-                    Xiaoyan Yu*, <strong>Tongxu Luo*</strong>, Yifan Wei, Fangyu Lei, Yiming Huang, Peng Hao, Liehuang Zhu
-                    <br>
-                    <strong><em>EMNLP Main</em></strong>, 2024
-                    <br>
-                </td>
-                </tr>
+            function changeNav() {
+                let index = sections.length;
 
-                <tr>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2401.11944">
-                    <papertitle>CMMMU: A Chinese Massive Multi-discipline Multimodal Understanding Benchmark</papertitle>
-                    </a>
-                    <br>
-                    Ge Zhang, Xinrun Du, Bei Chen, Yiming Liang, <strong>Tongxu Luo</strong>, Tianyu Zheng, Kang Zhu, Yuyang Cheng, Chunpu Xu, Shuyue Guo, Haoran Zhang, Xingwei Qu, Junjie Wang, Ruibin Yuan, Yizhi Li, Zekun Wang, Yudong Liu, Yu-Hsuan Tsai, Fengji Zhang, Chenghua Lin, Wenhao Huang, Wenhu Chen, Jie Fu
-                    <br>
-                    <strong><em>Preprint</em></strong>, 2024 (<a href="https://twitter.com/_akhaliq/status/1749635037945823723"><strong><em>Posted by AK</em></strong></a>)
-                    <br>
-                </td>
-                </tr>
-              
-                <tr>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://dl.acm.org/doi/abs/10.1145/3581783.3612850">
-                    <papertitle>Answer-Based Entity Extraction and Alignment for Visual Text Question Answering</papertitle>
-                    </a>
-                    <br>
-                    Jun Yu, Mohan Jing, Weihao Liu*, <strong>Tongxu Luo*</strong>, Bingyuan Zhang, Keda Lu, Fangyu Lei, Jianqing Sun, Jiaen Liang
-                    <br>
-                    <strong><em>ACMMM</em></strong>, 2023
-                    <br>
-                </td>
-                </tr>
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {} // 100是偏移量，让高亮更及时
 
-                <!-- <tr>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2402.12851">
-                    <papertitle>MoELoRA: Contrastive Learning Guided Mixture of Experts on Parameter-Efficient Fine-Tuning for Large Language Models</papertitle>
-                    </a>
-                    <br>
-                    <strong>Tongxu Luo*</strong>, Jiahe Lei*, Fangyu Lei, Weihao Liu, Shizhu He, Jun Zhao, Kang Liu
-                    <br>
-                    <strong><em>Preprint</em></strong>, 2024
-                    <br>
-                </td>
-                </tr> -->
-                <!-- <tr>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2309.12669">
-                    <papertitle>HRoT: Hybrid prompt strategy and Retrieval of Thought for Table-Text Hybrid Question Answering</papertitle>
-                    </a>
-                    <br>
-                    <strong>Tongxu Luo</strong>, Fangyu Lei, Jiahe Lei, Weihao Liu, Shihu He, Jun Zhao, Kang Liu
-                    <br>
-                    <strong><em>Preprint</em></strong>, 2023
-                    <br>
-                </td>
-                </tr> -->
-<!-- 
-                <tr>
-                    <td style="padding:20px;width:75%;vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2310.15075">
-                        <papertitle>TableQAKit: A Comprehensive and Practical Toolkit for Table-based Question Answering</papertitle>
-                    </a>
-                    <br>
-                    Fangyu Lei*, <strong>Tongxu Luo*</strong>, Pengqi Yang*, Weihao Liu*, Shizhu He, Jun Zhao, Kang Liu
-                    <br>
-                    <strong><em>Preprint</em></strong>, 2023
-                    <br>
-                    </td>
-                </tr>
+                navLinks.forEach((link) => link.classList.remove('active'));
+                // 确保对应的 navLink 存在
+                if (navLinks[index]) {
+                    navLinks[index].classList.add('active');
+                }
+            }
 
-                <tr>
-                <td style="padding:20px; width:75%; vertical-align:middle">
-                    <a href="https://arxiv.org/abs/2309.04790">
-                    <papertitle>MMHQA-ICL: Multimodal In-context Learning for Hybrid Question Answering over Text, Tables and Images</papertitle>
-                    </a>
-                    <br>
-                    Weihao Liu, Fangyu Lei, <strong>Tongxu Luo</strong>, Jiahe Lei, Shizhu He, Jun Zhao, Kang Liu
-                    <br>
-                    <strong><em>Preprint</em></strong>, 2023
-                    <br>
-                </td>
-                </tr> -->
-                <!-- Add more publication entries as needed -->
+            changeNav(); // 初始加载时调用
+            window.addEventListener('scroll', changeNav); // 滚动时调用
 
-            </tbody>
-          </table>
-        
-          <table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px; width:75%; vertical-align:middle">
-                  <heading>Scholarships</heading>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:20px; width:75%; vertical-align:middle">
-                  Awarded the National Scholarship for the 2022-2023 academic year.
-                </td>
-              </tr>
-              <!-- Add more scholarship entries as needed -->
-            </tbody>
-          </table>
+            // 平滑滚动到锚点
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </body>
-
 </html>
