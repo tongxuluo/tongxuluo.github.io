@@ -21,7 +21,7 @@
 
         /* 左侧固定栏 */
         .sidebar {
-            width: 600px; /* 左侧栏宽度 */
+            width: 500px; /* 左侧栏宽度 */
             position: fixed;
             top: 0;
             left: 0;
@@ -51,7 +51,7 @@
 
         .sidebar p {
             font-size: 0.9em;
-            margin-bottom: 10px;
+            margin-bottom: 18px;
             text-align: center;
         }
 
@@ -94,7 +94,7 @@
 
         /* 右侧内容区 */
         .main-content {
-            margin-left: 600px; /* 等于左侧栏宽度 */
+            margin-left: 500px; /* 等于左侧栏宽度 */
             padding: 40px;
             width: calc(100% - 300px); /* 填充剩余宽度 */
             box-sizing: border-box;
@@ -276,7 +276,6 @@
                 <li><a href="#news" class="nav-link">News</a></li>
                 <li><a href="#publications" class="nav-link">Publications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#visitor-stats" class="nav-link">Visitor Stats</a></li>
             </ul>
         </nav>
     </aside>
@@ -397,20 +396,15 @@
         </section>
 
         <section id="visitor-stats">
-            <h2>Visitor Statistics</h2>
-            <p>See where my visitors are coming from!</p>
             <div id="visitor-map-container">
-                <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=FunMOwGHUe1ZM5KeP-MiqYqBgitK-20dunL0r-ZLXPY&cl=ffffff&w=a"></script>
+                <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=FunMOwGHUe1ZM5KeP-MiqYqBgitK-20dunL0r-ZLXPY&cl=6298c7&w=a&co=ffffff&ct=000000"></script>
                 <noscript>
                     <p>Please enable JavaScript to see the visitor map.</p>
                     <a href="https://mapmyvisitors.com/web/1by9x" title="Visit tracker">
-                        <img src="https://mapmyvisitors.com/map.png?d=FunMOwGHUe1ZM5KeP-MiqYqBgitK-20dunL0r-ZLXPY&cl=ffffff" alt="Visitor Map">
+                        <img src="https://mapmyvisitors.com/map.png?d=FunMOwGHUe1ZM5KeP-MiqYqBgitK-20dunL0r-ZLXPY&cl=6298c7" alt="Visitor Map">
                     </a>
                 </noscript>
             </div>
-            <p style="text-align: center; margin-top: 10px;">
-                <a href="https://mapmyvisitors.com/web/1by9x" target="_blank">View Detailed Statistics</a>
-            </p>
         </section>
     </main>
 
@@ -423,7 +417,7 @@
             function changeNav() {
                 let index = sections.length;
 
-                while(--index && window.scrollY + 100 < sections[index].offsetTop) {} // 100是偏移量，让高亮更及时
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {} // 100是偏移量，让高亮更及时 6298c7
 
                 navLinks.forEach((link) => link.classList.remove('active'));
                 // 确保对应的 navLink 存在
