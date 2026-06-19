@@ -355,13 +355,14 @@
             <h2>About Me</h2>
             <p>Welcome to my personal homepage!</p>
             <p>My name is Tongxu Luo, a junior PhD student at Chinese University of Hong Kong, Shenzhen. I received my bachelor degree in Computer Science and Technology from USTB in 2025. Previous internship at <strong>Moonshot AI</strong> (2025.10 – 2026.5), focused on RL for LLMs.</p>
-            <p>I have a strong interest in all topics about LLMs and am actively exploring and expanding the boundaries of current LLM technology. My recent research mainly focuses on Reinforcement Learning and Large Reasoning Models. So far, I have published papers in conferences such as NeurIPS, ACL, COLM and EMNLP, with a total of Google Scholar citations (<a href="https://scholar.google.com/citations?user=aJEGhzkAAAAJ" target="_blank" style="text-decoration: none;"><img src="https://img.shields.io/badge/Google%20Scholar-557-blue?logo=googlescholar&logoColor=white&style=flat" alt="Google Scholar Citations" style="position: relative; top: 5px;"></a>).</p>
+            <p>I have a strong interest in all topics about LLMs and am actively exploring and expanding the boundaries of current LLM technology. My recent research mainly focuses on Reinforcement Learning and Large Reasoning Models. So far, I have published papers in conferences such as NeurIPS, ACL, COLM and EMNLP, with a total of Google Scholar citations (<a href="https://scholar.google.com/citations?user=aJEGhzkAAAAJ" target="_blank" style="text-decoration: none;"><img src="https://img.shields.io/badge/Google%20Scholar-732-blue?logo=googlescholar&logoColor=white&style=flat" alt="Google Scholar Citations" style="position: relative; top: 5px;"></a>).</p>
         </section>
 
         <section id="news">
             <h2>News</h2>
             <div class="news-list">
                 <ul>
+                    <li><span class="date">2026.1</span> 📢 Our new paper “GameCraft-Bench: Can Agents Build Playable Games End-to-End in a Real Game Engine?” is now available on arXiv!</li>
                     <li><span class="date">2026.4</span> 🎉 Our paper “Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning” has been accepted to ACL 2026 Main!</li>
                     <li><span class="date">2026.1</span> 📢 Our new Kimi K2.5 model and report “Kimi K2.5: Visual Agentic Intelligence” is now available on HuggingFace and arXiv!</li>
                     <li><span class="date">2025.7</span> 🎉 Our paper “E2-RAG: Towards Editable Efficient RAG by Editing Compressed KV Caches” has been accepted to COLM 2025!</li>
@@ -377,9 +378,26 @@
             <h2>Selected Publications</h2>
             <div class="papers-grid">
                 <div class="paper-item">
+                    <img src="./imgs/gcb_overview.png" alt="GameCraft-Bench" class="paper-image">
+                    <h3>[Arxiv Preprint] GameCraft-Bench: Can Agents Build Playable Games End-to-End in a Real Game Engine?</h3>
+                    <p class="authors"><strong>Tongxu Luo*</strong>, Rongsheng Wang*, Jiaxi Bi*, Chenming Xu*, Zhengyang Tang*, Jianlong Chen, Juhao Liang, Ke Ji, Shuqi Guo, Yuhao Du, Fan Bu, Wenyu Du, Xiaotong Zhang, Kyle Li, Shaobo Wang, Linfeng Zhang, Yuxuan Liu, Xin Lai, Chenxin Li, Yiduo Guo, Zhexin Zhang, Xinyuan Wang, Tianyi Bai, Ziniu Li, Benyou Wang</p>
+                    <p class="description">Can coding agents build actual games in a real game engine? To answer this question, we introduce GameCraft-Bench, a benchmark comprising 140 Godot tasks across 15 game families for evaluating end-to-end game generation through interactive gameplay verification. We find that frontier agents like Opu-4.7 achieve only 41.46%, suggesting that creating complete, playable games remains far from solved.</p>
+                    <div class="links">
+                        <a href="https://arxiv.org/abs/2606.17861v1" target="_blank" title="ArXiv">
+                            <img src="./imgs/arxiv-logo.svg" alt="ArXiv">
+                        </a>
+                        <a href="https://github.com/tongxuluo/gamecraft-bench" target="_blank" title="GitHub">
+                            <img src="./imgs/github-alt.svg" alt="GitHub">
+                        </a>
+                        <a href="https://x.com/ZiniuLi/status/2067095807887864093" target="_blank" title="Twitter">
+                            <img src="./imgs/twitter.svg" alt="Twitter">
+                        </a>
+                        </div>
+                </div>
+                <div class="paper-item">
                     <img src="./imgs/k2.5.png" alt="Kimi K2.5: Visual Agentic Intelligence" class="paper-image">
                     <h3>[Technical Report] Kimi K2.5: Visual Agentic Intelligence</h3>
-                    <p class="authors"> Kimi Team, ..., <strong>Tongxu Luo</strong>, ...</p>
+                    <p class="authors">Kimi Team, ..., <strong>Tongxu Luo</strong>, ...</p>
                     <p class="description">We introduce Kimi K2.5, an open-source multimodal agentic model designed to advance general agentic intelligence.  K2.5 emphasizes the joint optimization of text and vision so that two modalities enhance each other.</p>
                     <div class="links">
                         <a href="https://arxiv.org/abs/2602.02276" target="_blank" title="ArXiv">
@@ -416,7 +434,7 @@
                     <img src="./imgs/stacking.png" alt="Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training" class="paper-image">
                     <h3>[NeruIPS 2024 Spotlight] Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training</h3>
                     <p class="authors">Wenyu Du*, <strong>Tongxu Luo*</strong>, Zihan Qiu, Zeyu Huang, Yikang Shen, Reynold Cheng, Yike Guo, Jie Fu</p>
-                    <p class="description"> We investigate model growth techniques for efficient LLM pre-training, identifying a depthwise stacking operator that significantly accelerates training and improves performance by leveraging smaller models to build larger ones, while also providing systematic evaluation and guidelines for its application.</p>
+                    <p class="description">We investigate model growth techniques for efficient LLM pre-training, identifying a depthwise stacking operator that significantly accelerates training and improves performance by leveraging smaller models to build larger ones, while also providing systematic evaluation and guidelines for its application.</p>
                     <div class="links">
                         <a href="https://arxiv.org/abs/2405.15319" target="_blank" title="ArXiv">
                             <img src="./imgs/arxiv-logo.svg" alt="ArXiv">
